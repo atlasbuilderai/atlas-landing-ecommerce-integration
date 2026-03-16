@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync Your E-commerce Across All Marketplaces</title>
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-alt: #f0fdf4;
+            --border: #e5e7eb;
+            --success: #10b981;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+        
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.125rem;
+            color: var(--text-light);
+        }
+        
+        .problem {
+            background: var(--bg-alt);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .problem h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .problem p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-alt);
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .solution {
+            margin-bottom: 2rem;
+        }
+        
+        .solution h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .features {
+            list-style: none;
+        }
+        
+        .features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .features li:last-child { border-bottom: none; }
+        
+        .check { color: var(--success); font-weight: bold; }
+        
+        .cta {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .cta:hover { background: var(--primary-dark); }
+        
+        .form-group { margin-top: 1.5rem; }
+        
+        input[type="email"] {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .privacy {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Stop Manually Syncing Inventory Across Marketplaces</h1>
+            <p class="tagline">Automate your e-commerce operations — sell on Shopify, Amazon, Etsy, WooCommerce without the chaos.</p>
+        </header>
+        
+        <div class="problem">
+            <h2>The Problem</h2>
+            <p>E-commerce sellers lose 2+ days every week to manual tasks. Updating inventory. Syncing orders. Chasing shipments. It adds up fast.</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">2+ Days</div>
+                <div class="stat-label">Lost Per Week</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">21%</div>
+                <div class="stat-label">Spend 50%+ on Manual Tasks</div>
+            </div>
+        </div>
+        
+        <div class="solution">
+            <h2>What We're Building</h2>
+            <ul class="features">
+                <li><span class="check">✓</span> Automatic inventory sync across all marketplaces</li>
+                <li><span class="check">✓</span> Unified order management in one dashboard</li>
+                <li><span class="check">✓</span> Connect Shopify, Amazon, Etsy, WooCommerce</li>
+                <li><span class="check">✓</span> Starts at $49/month</li>
+            </ul>
+        </div>
+        
+        <form id="waitlist-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <button type="submit" class="cta">Join the Waitlist</button>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <p class="privacy">No spam. Unsubscribe anytime.</p>
+        </form>
+        
+        <footer>
+            <p>For multi-channel sellers who want to focus on growing, not copying.</p>
+        </footer>
+    </div>
+</body>
+</html>
