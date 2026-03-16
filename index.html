@@ -3,215 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sync Your E-commerce Across All Marketplaces</title>
+    <title>Multi-Channel E-commerce Automation | Sync Everywhere</title>
+    <meta name="description" content="Automate your e-commerce across Shopify, Amazon, Etsy, and WooCommerce.">
     <style>
         :root {
-            --primary: #059669;
-            --primary-dark: #047857;
-            --text: #1f2937;
-            --text-light: #6b7280;
-            --bg: #ffffff;
-            --bg-alt: #f0fdf4;
-            --border: #e5e7eb;
-            --success: #10b981;
+            --primary: #0f172a;
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --text: #334155;
+            --text-light: #64748b;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --success: #22c55e;
+            --border: #e2e8f0;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
         }
         
-        .container {
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+        
+        .hero {
+            padding: 5rem 0 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, #ecfdf5 0%, #f1f5f9 100%);
         }
         
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
+        .badge {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            background: #d1fae5;
+            color: #065f46;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         h1 {
-            font-size: 1.875rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.025em;
         }
         
-        .tagline {
+        h1 span { color: var(--accent); }
+        
+        .hero p {
             font-size: 1.125rem;
             color: var(--text-light);
+            max-width: 540px;
+            margin: 0 auto 2rem;
         }
         
-        .problem {
-            background: var(--bg-alt);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .problem h2 {
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.875rem 2rem;
             font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
         }
         
-        .problem p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
         
         .stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 1.5rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
         }
         
-        .stat {
-            text-align: center;
-            padding: 1rem;
-            background: var(--bg-alt);
-            border-radius: 8px;
-        }
+        .stat { text-align: center; }
         
         .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
         }
         
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
         }
         
-        .solution {
-            margin-bottom: 2rem;
+        .section { padding: 4rem 0; }
+        
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        
+        .section-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
         }
         
-        .solution h2 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+        .section-header p { color: var(--text-light); max-width: 500px; margin: 0 auto; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
         
-        .features {
-            list-style: none;
+        .card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
         }
         
-        .features li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        .card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
         
-        .features li:last-child { border-bottom: none; }
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
         
-        .check { color: var(--success); font-weight: bold; }
+        .card p { font-size: 0.875rem; color: var(--text-light); }
         
-        .cta {
+        .check { color: var(--success); font-weight: bold; margin-right: 0.25rem; }
+        
+        .waitlist-section {
             background: var(--primary);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .waitlist-section h2 { color: white; font-size: 1.75rem; margin-bottom: 0.75rem; }
+        .waitlist-section p { color: #94a3b8; margin-bottom: 1.5rem; }
+        
+        .waitlist-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 440px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .waitlist-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.875rem 1rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+        }
+        
+        .waitlist-form input::placeholder { color: #94a3b8; }
+        
+        .waitlist-form input:focus { border-color: var(--accent); background: rgba(255, 255, 255, 0.15); }
+        
+        .waitlist-form button {
+            background: var(--accent);
             color: white;
             border: none;
-            width: 100%;
-            padding: 1rem;
+            padding: 0.875rem 1.5rem;
             font-size: 1rem;
             font-weight: 600;
             border-radius: 8px;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            white-space: nowrap;
         }
         
-        .cta:hover { background: var(--primary-dark); }
+        .waitlist-form button:hover { background: var(--accent-hover); }
         
-        .form-group { margin-top: 1.5rem; }
-        
-        input[type="email"] {
-            width: 100%;
-            padding: 0.875rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        input[type="email"]:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        .privacy {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            text-align: center;
-            margin-top: 1rem;
-        }
+        .privacy { color: #64748b; font-size: 0.75rem; margin-top: 1rem; }
         
         footer {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
+            padding: 2rem 0;
             color: var(--text-light);
             font-size: 0.875rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        @media (max-width: 640px) {
+            .stats { grid-template-columns: 1fr; }
+            .waitlist-form { flex-direction: column; }
+            .waitlist-form input, .waitlist-form button { width: 100%; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Stop Manually Syncing Inventory Across Marketplaces</h1>
-            <p class="tagline">Automate your e-commerce operations — sell on Shopify, Amazon, Etsy, WooCommerce without the chaos.</p>
-        </header>
-        
-        <div class="problem">
-            <h2>The Problem</h2>
-            <p>E-commerce sellers lose 2+ days every week to manual tasks. Updating inventory. Syncing orders. Chasing shipments. It adds up fast.</p>
+    <section class="hero">
+        <div class="container">
+            <span class="badge">For Multi-Channel Sellers</span>
+            <h1>Sell Everywhere. <span>Sync Automatically.</span></h1>
+            <p>One dashboard to manage Shopify, Amazon, Etsy, and WooCommerce. Stop copying. Start growing.</p>
+            <a href="#waitlist" class="cta-button">Join the Waitlist →</a>
         </div>
-        
+    </section>
+    
+    <div class="container">
         <div class="stats">
             <div class="stat">
                 <div class="stat-number">2+ Days</div>
-                <div class="stat-label">Lost Per Week</div>
+                <div class="stat-label">lost to manual tasks every week</div>
             </div>
             <div class="stat">
                 <div class="stat-number">21%</div>
-                <div class="stat-label">Spend 50%+ on Manual Tasks</div>
+                <div class="stat-label">spend 50%+ time on manual work</div>
             </div>
         </div>
         
-        <div class="solution">
-            <h2>What We're Building</h2>
-            <ul class="features">
-                <li><span class="check">✓</span> Automatic inventory sync across all marketplaces</li>
-                <li><span class="check">✓</span> Unified order management in one dashboard</li>
-                <li><span class="check">✓</span> Connect Shopify, Amazon, Etsy, WooCommerce</li>
-                <li><span class="check">✓</span> Starts at $49/month</li>
-            </ul>
-        </div>
-        
-        <form id="waitlist-form" action="https://formspree.io/f/your-form-id" method="POST">
-            <button type="submit" class="cta">Join the Waitlist</button>
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Enter your email" required>
+        <section class="section">
+            <div class="section-header">
+                <h2>The Problem</h2>
+                <p>Running an online store across multiple marketplaces is chaotic.</p>
             </div>
-            <p class="privacy">No spam. Unsubscribe anytime.</p>
-        </form>
+            <div class="grid">
+                <div class="card">
+                    <h3>📦 Inventory Chaos</h3>
+                    <p>Products out of stock on one platform but showing available on another.</p>
+                </div>
+                <div class="card">
+                    <h3>📋 Order Overload</h3>
+                    <p>Orders scattered across platforms. No unified view of your business.</p>
+                </div>
+                <div class="card">
+                    <h3>🔄 Manual Updates</h3>
+                    <p>Same product listed multiple times. Changes take hours to propagate.</p>
+                </div>
+            </div>
+        </section>
         
-        <footer>
-            <p>For multi-channel sellers who want to focus on growing, not copying.</p>
-        </footer>
+        <section class="section">
+            <div class="section-header">
+                <h2>The Solution</h2>
+                <p>Automatic synchronization across all your marketplaces.</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3><span class="check">✓</span> Real-Time Sync</h3>
+                    <p>Inventory updates instantly across all platforms.</p>
+                </div>
+                <div class="card">
+                    <h3><span class="check">✓</span> Unified Orders</h3>
+                    <p>All orders in one dashboard. Process fulfillment faster.</p>
+                </div>
+                <div class="card">
+                    <h3><span class="check">✓</span> Connect 4+ Platforms</h3>
+                    <p>Shopify, Amazon, Etsy, WooCommerce — all connected.</p>
+                </div>
+                <div class="card">
+                    <h3><span class="check">✓</span> Starts at $49/mo</h3>
+                    <p>Pay for one tool, not four. Cancel anytime.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="waitlist-section" id="waitlist">
+            <h2>Get Early Access</h2>
+            <p>Be the first to know when we launch. No spam, ever.</p>
+            <form class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="email" name="email" placeholder="Enter your work email" required>
+                <button type="submit">Join Waitlist</button>
+            </form>
+            <p class="privacy">We respect your privacy. Unsubscribe anytime.</p>
+        </section>
     </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2026. Built for multi-channel sellers who want to focus on growth.</p>
+        </div>
+    </footer>
 </body>
 </html>
